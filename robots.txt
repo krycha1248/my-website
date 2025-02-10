@@ -1,0 +1,16 @@
+---
+layout: none
+---
+User-agent: *
+
+Disallow: /
+
+Allow: /$
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /favicon.ico
+Allow: /assets/js/
+Allow: /assets/css/
+Allow: /assets/images/
+
+Sitemap: {{ site.url }}/sitemap.xml
