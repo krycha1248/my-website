@@ -28,12 +28,12 @@ author:
   name     : "Krystian Włodek"
   #avatar   : "/assets/images/logo.png"
   bio      : "Entuzjasta w dziedzinie szeroko pojętej administracji IT oraz automatyzacji infrastruktury w chmurze."
-  #email: "krystian@wlodek.net"
+  email: "krystian@wlodek.net"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/krycha1248"
-#email: "krystian@wlodek.net"
+email: "krystian@wlodek.net"
 description: >- # this means to ignore newlines until "baseurl:"
   Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji systemów i automatyzacji infrastruktury IT.
 baseurl: "/" # the subpath of your site, e.g. /blog
