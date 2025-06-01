@@ -49,5 +49,6 @@ Options -Indexes
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()"
 </IfModule>
 
-# Obsługa błędu 404
+# Obsługa błędów
 ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
