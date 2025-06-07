@@ -52,3 +52,8 @@ Options -Indexes
 # Obsługa błędów
 ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
+
+# Blokada pliku
+<Files ".ftp-deploy-sync-state.json">
+    Require all denied
+</Files>
