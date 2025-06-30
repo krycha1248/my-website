@@ -10,7 +10,7 @@ sitemap: true
 
 ## Wprowadzenie
 
-Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji systemów i automatyzacji infrastruktury IT. Moje główne obszary zainteresowań to administrowanie serwerami, sieciami i chmurami. Dążę do tego, by zostać DevOps Engineer'em. Zachęcam do zapoznania się z moim doświadczeniem i osiągnięciami poniżej!
+Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji systemów i automatyzacji infrastruktury IT. Moje główne obszary zainteresowań to administrowanie serwerami, sieciami i chmurami. Dążę do tego, by zostać inżynierem DevOps. Zachęcam do zapoznania się z moim doświadczeniem i osiągnięciami poniżej!
 
 ## Moje Kompetencje
 
