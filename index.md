@@ -71,7 +71,7 @@ Dodatkowo w mojej sieci działa fizyczny serwer z zainstalowanym Proxmox, który
 
 Na Proxmox uruchomione są głównie kontenery, na których działają różne usługi, takie jak Samba, FTP, Docker, testowy "klaster web" oraz serwer Minecraft, udostępniony publicznie.
 
-Dodatkowo posiadam serwer VPS, na którym zainstalowany jest i skonfigurowany serwer ISPconfig 3. Na tym serwerze znajomi hostują swoje strony internetowe, bazy danych oraz obsługują pocztę w własnych domenach.
+Dodatkowo posiadam serwer VPS, na którym zainstalowany jest i skonfigurowany serwer DirectAdmin. Na tym serwerze znajomi hostują swoje strony internetowe, bazy danych oraz obsługują pocztę w własnych domenach.
 
 Aktywnie korzystam również z chmury publicznej (OpenStack) oraz narzędzi do automatyzacji infrastruktury chmurowej, takich jak Ansible, Terraform oraz GitHub Actions. Napisałem skrypty automatyzujące proces wdrażania instancji w chmurze, ich podstawową konfigurację oraz proces instalacji oprogramowania Jitsi Meet do wideokonferencji.
 
