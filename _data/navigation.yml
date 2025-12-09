@@ -3,6 +3,8 @@ main:
     url: /
   - title: "Blog"
     url: /blog/
+  - title: "Cloud"
+    url: "https://cloud.wlodek.net"
 #  - title: "Do pobrania"
 #    url: /downloads/
   - title: "Panel"
