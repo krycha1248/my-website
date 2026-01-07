@@ -75,7 +75,7 @@ Dodatkowo posiadam serwer VPS, na którym zainstalowany jest i skonfigurowany se
 
 Aktywnie korzystam również z chmury publicznej (OpenStack) oraz narzędzi do automatyzacji infrastruktury chmurowej, takich jak Ansible, Terraform oraz GitHub Actions. Napisałem skrypty automatyzujące proces wdrażania instancji w chmurze, ich podstawową konfigurację oraz proces instalacji oprogramowania Jitsi Meet do wideokonferencji.
 
-Ze znajomym, który zajmuje się tworzeniem aplikacji internetowych, stworzyłem automatyzację procesu wdrażania całego środowiska i aplikacji. Wkrótce planuję rozszerzyć automatyzację na proces wdrażania nowszych wersji aplikacji przy użyciu GitHub Actions oraz Ansible.
+Wraz ze znajomym, który zajmuje się tworzeniem aplikacji internetowych, stworzyłem automatyzację procesu wdrażania całego środowiska i aplikacji. Wkrótce planuję rozszerzyć automatyzację na proces wdrażania nowszych wersji aplikacji przy użyciu GitHub Actions oraz Ansible.
 
 ***
 
