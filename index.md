@@ -17,11 +17,11 @@ Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji 
 ### Umiejętności techniczne
 
 1. **Systemy operacyjne:**
-   - Linux (Debian, RedHat)
-   - RouterOS (Mikrotik).
+   - Linux (Debian, RedHat),
+   - RouterOS (Mikrotik),
 
 2. **Web serwery:**
-   - (Linux, PHP, MySQL, Nginx, Redis).
+   - (Linux, PHP, MySQL, Nginx, Redis),
 
 3. **Serwery poczty:**
    - Postfix, 
@@ -50,7 +50,7 @@ Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji 
 7. **Monitoring:**
    - Zabbix,
    - Uptime Kuma,
-   - Monit
+   - Monit,
 
 8. **Inne technologie:**
    - CMS WordPress,
