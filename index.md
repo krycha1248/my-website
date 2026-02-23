@@ -47,7 +47,12 @@ Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji 
    - RouterOS (Mikrotik),
    - IOS (Cisco),
 
-7. **Inne technologie:**
+7. **Monitoring:**
+   - Zabbix,
+   - Uptime Kuma,
+   - Monit
+
+8. **Inne technologie:**
    - CMS WordPress,
    - AutoDesk AutoCAD,
 
