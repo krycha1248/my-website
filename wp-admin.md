@@ -1,7 +1,6 @@
 ---
 layout: single
 permalink: /wp-admin/
-title: "wp-admin"
 classes: wide
 sitemap: false
 author_profile: false
