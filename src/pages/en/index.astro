@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -9,6 +9,6 @@ const t = useTranslations(lang);
 <BaseLayout>
   <section class="p-8 text-center">
     <h1 class="text-4xl font-bold mb-4">{t('greeting')}</h1>
-    <p>Tu możesz umieścić opis portfolio lub linki do sociali.</p>
+    <p>This is a simple portfolio description. Add social links here.</p>
   </section>
 </BaseLayout>
