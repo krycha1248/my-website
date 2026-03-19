@@ -1,10 +1,14 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   AOS.init({
+    once: false,
     duration: 800,
-    easing: 'ease-out',
-    once: false
+    easing: 'ease-out-cubic'
   });
+
+  setTimeout(() => {
+    AOS.refresh();
+  }, 100);
 });

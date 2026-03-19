@@ -1,25 +1,45 @@
 ---
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { getLangFromUrl } from '../i18n/utils';
 import '../styles/global.css';
+import Head from '../components/Head.astro';
+import { getLangFromUrl } from '../i18n/utils';
 
-const lang = getLangFromUrl(Astro.url);
+const { title = "Krystian Włodek", description = "" } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url) || 'pl';
+const oppositeLang = lang === 'pl' ? 'EN' : 'PL';
+const switchHref = lang === 'pl' ? '/en' : '/';
 ---
+<html lang={lang} class="scroll-smooth">
+  <Head title={title} description={description} lang={lang} />
 
-<html lang={lang}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" />
-    <title>Krystian Włodek</title>
-  </head>
-  <body class="min-h-screen bg-base-100">
-    <header class="p-4">
-      <LanguageSwitcher />
-    </header>
-    <main>
-      <slot />
-      <script type="module" src="/src/js/aos-init.js"></script>
-    </main>
+  <body class="min-h-screen bg-gray-200 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div class="w-full h-screen p-2 md:p-3">
+      <div class="w-full h-full bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 flex flex-col overflow-hidden transition-colors duration-300">
+
+        <!-- HEADER -->
+        <div class="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+          <div class="w-3 h-3 rounded-full bg-red-400"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+          <div class="w-3 h-3 rounded-full bg-green-400"></div>
+
+          <div class="ml-4 text-xs text-gray-500 dark:text-gray-300 font-mono">
+            krystian@wlodek.net — © {new Date().getFullYear()}
+          </div>
+
+          <!-- LANGUAGE SWITCHER -->
+          <div class="ml-auto flex items-center gap-2">
+            <a href={switchHref} class="px-3 py-1 text-xs border border-gray-300 dark:border-gray-500 rounded-md shadow-sm hover:bg-gray-100 dark:hover:bg-gray-600 transition text-current">
+              {oppositeLang}
+            </a>
+          </div>
+        </div>
+
+        <!-- CONTENT SLOT -->
+        <main class="flex-1 overflow-y-auto px-2 py-2">
+          <slot />
+          <script type="module" src="/src/js/aos-init.js"></script>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

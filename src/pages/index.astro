@@ -1,15 +1,56 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import 'aos/dist/aos.css';
+import Typewriter from 'astro-typewriter';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const technologies = [
+  "Linux (Debian, RedHat)", "RouterOS (Mikrotik)", "Linux + PHP", "MySQL",
+  "Nginx", "Redis", "Proxmox", "Docker", "Kubernetes", "Terraform",
+  "Bash", "ZSH", "Ansible", "GitHub Actions", "Zabbix", "Monit",
+  "Uptime Kuma", "WordPress", "AutoDesk AutoCAD", "Cloudflare"
+];
 ---
+<BaseLayout title="Krystian Włodek" description="Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji systemów i automatyzacji infrastruktury IT.">
 
-<BaseLayout>
-  <section class="p-8 text-center">
-    <h1 class="text-4xl font-bold mb-4">{t('greeting')}</h1>
-    <p>Tu możesz umieścić opis portfolio lub linki do sociali.</p>
+  <!-- HERO -->
+  <section class="flex flex-col justify-center items-center text-center px-6 py-24">
+    <h1 class="text-7xl md:text-8xl font-mono font-bold mb-4">
+      &gt; <span class="border-b-8 border-lime-400">Krystian Włodek</span>
+    </h1>
+
+    <div class="text-3xl md:text-4xl font-mono">
+      <Typewriter
+        messages={["sysadmin", "devops", "network engineer", "automation specialist"]}
+        style={{ display: "inline-block", lineHeight: "1.6em" }}
+        waitWritten={3000}
+        deleteSpeed={50}
+        writeSpeed={50}
+      />
+    </div>
   </section>
+
+  <!-- O MNIE + TECHNOLOGIE -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-2 lg:gap-12 lg:items-start">
+
+      <div class="lg:w-5/12 p-6 rounded-xl shadow-lg mb-12 lg:mb-0 hover:border-lime-400 border-2 border-transparent transition-colors duration-300">
+        <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">O mnie</h3>
+        <p class="text-base md:text-lg leading-relaxed">
+          Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji systemów i automatyzacji infrastruktury IT. Moje główne obszary zainteresowań to administrowanie serwerami, sieciami i chmurami. Dążę do tego, by zostać inżynierem DevOps.
+        </p>
+      </div>
+
+      <div class="lg:w-7/12 p-6 rounded-xl shadow-lg hover:border-lime-400 border-2 border-transparent transition-colors duration-300">
+        <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">Technologie</h3>
+        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+          {technologies.map(tech => (
+            <span class="inline-block align-top px-4 py-2 rounded-full font-semibold text-sm md:text-base shadow-md hover:bg-lime-400 transition-colors duration-300 cursor-default">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 </BaseLayout>
