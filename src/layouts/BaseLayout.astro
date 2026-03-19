@@ -5,9 +5,22 @@ import { getLangFromUrl } from '../i18n/utils';
 
 const { title = "Krystian Włodek", description = "" } = Astro.props;
 
+// Ustalenie języka z URL
 const lang = getLangFromUrl(Astro.url) || 'pl';
+const path = Astro.url.pathname; // np. "/" lub "/en/about"
+
+// Ustalenie języka przeciwnego
 const oppositeLang = lang === 'pl' ? 'EN' : 'PL';
-const switchHref = lang === 'pl' ? '/en' : '/';
+
+// Dynamiczny link przełączenia języka
+let switchHref;
+if (lang === 'pl') {
+  // z PL → EN: dodaj /en przed ścieżką, jeśli jej jeszcze nie ma
+  switchHref = path.startsWith('/en') ? path : '/en' + path;
+} else {
+  // z EN → PL: usuń /en z początku ścieżki
+  switchHref = path.replace(/^\/en/, '') || '/';
+}
 ---
 <html lang={lang} class="scroll-smooth">
   <Head title={title} description={description} lang={lang} />
