@@ -8,6 +8,16 @@ const technologies = [
   "Bash", "ZSH", "Ansible", "GitHub Actions", "Zabbix", "Monit",
   "Uptime Kuma", "WordPress", "AutoDesk AutoCAD", "Cloudflare"
 ];
+
+const certificates = [
+  "9/2019/2020 IT Essentials: PC Hardware and Software",
+  "10/2019/2020 CCNA R&S: Introduction to Networks",
+  "21/2020/2021 CCNAv7: Introduction to Networks",
+  "Cisco CCNA Routing and Switching",
+  "Kwalifikacja INF0.2",
+  "Kwalifikacja INF0.3",
+  "Certyfikat Autodesk Certified User (ACU)"
+];
 ---
 <BaseLayout title="Krystian Włodek" description="Cześć! Jestem Krystian, pasjonat technologii z zamiłowaniem do administracji systemów i automatyzacji infrastruktury IT.">
 
@@ -67,5 +77,27 @@ const technologies = [
 
     </div>
   </section>
+
+<!-- CERTYFIKATY -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="p-6 rounded-xl shadow-lg hover:border-lime-400 border-2 border-transparent transition-colors duration-300">
+      <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">Certyfikaty</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {certificates.map(cert => (
+          <div class="relative bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-default">
+            {/* Ikona pliku w lewym górnym rogu */}
+            <div class="absolute -top-3 -left-3 w-10 h-10 bg-lime-400 rounded-tr-lg rounded-bl-lg flex items-center justify-center text-white font-bold shadow">
+              📄
+            </div>
+            <div class="p-6 pt-10">
+              <h4 class="font-semibold text-base md:text-lg">{cert}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
 </BaseLayout>
