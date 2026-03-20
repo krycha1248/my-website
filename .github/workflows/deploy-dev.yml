@@ -25,7 +25,7 @@ jobs:
           version: 10
           run_install: true
       - name: Build Astro site
-        run: pnpm run build
+        run: PUBLIC_SITE_URL=https://wlodek.dev pnpm run build
       - name: Send the site via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
