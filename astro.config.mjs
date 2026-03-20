@@ -11,4 +11,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [sitemap()],
+  i18n: {
+    defaultLocale: 'pl',
+    locales: ['pl', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    }
+  },
 });
