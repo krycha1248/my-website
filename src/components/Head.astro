@@ -4,19 +4,19 @@ const { title = "Krystian Włodek", description = "", lang = "pl", ogImage = "/i
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.svg" />
+  <link rel="icon" href="/assets/images/favicon.png" />
   <title>{title}</title>
   {description && <meta name="description" content={description} />}
   <meta name="robots" content="index, follow" />
 
-  <link rel="alternate" hreflang="pl" href="https://wlodek.net/" />
-  <link rel="alternate" hreflang="en" href="https://wlodek.net/en/" />
+  <link rel="alternate" hreflang="pl" href={Astro.site} />
+  <link rel="alternate" hreflang="en" href={Astro.site + 'en/'} />
   
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={`https://wlodek.net${Astro.url.pathname}`} />
+  <meta property="og:url" content={Astro.site} />
   <meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_US'} />
 
   <meta name="twitter:card" content="summary_large_image" />
