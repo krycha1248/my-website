@@ -1,10 +1,12 @@
 ---
+import { ThemeScript } from 'astro-theme-toggle/components';
 const { title = "Krystian Włodek", description = "", lang = "pl", ogImage = "/assets/images/og.png" } = Astro.props;
 ---
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/assets/images/favicon.png" />
+  <ThemeScript />
   <title>{title}</title>
   {description && <meta name="description" content={description} />}
   <meta name="robots" content="index, follow" />

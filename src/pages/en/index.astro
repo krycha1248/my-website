@@ -16,9 +16,10 @@ const certificates = [
   "Cisco CCNA Routing and Switching",
   "Qualification INF0.2",
   "Qualification INF0.3",
-  "Certificate Autodesk Certified User (ACU)"
+  "Autodesk Certified User (ACU)"
 ];
 ---
+
 <BaseLayout title="Krystian Włodek" description="Hi! I'm Krystian, a technology enthusiast with a passion for system administration and IT infrastructure automation.">
 
   <!-- HERO -->
@@ -42,20 +43,23 @@ const certificates = [
   <section class="py-12">
     <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-2 lg:gap-12 lg:items-stretch">
 
-      <div class="lg:w-5/12 p-6 rounded-xl shadow-lg mb-12 lg:mb-0 hover:border-lime-400 border-2 border-transparent transition-colors duration-300">
+      <!-- ABOUT ME -->
+      <div class="lg:w-5/12 p-6 rounded-xl shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300 mb-12 lg:mb-0">
         <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">About Me</h3>
         <p class="text-base md:text-lg leading-relaxed mb-4">
-          Hi! I'm Krystian, a technology enthusiast with a passion for system administration and IT infrastructure automation. My main interests include server, network, and cloud administration. I am working towards becoming a DevOps engineer.
+          Hi! I'm Krystian, a technology enthusiast with a passion for system administration and IT infrastructure automation. My main areas of interest are managing servers, networks, and cloud environments. I'm aiming to become a DevOps engineer.
         </p>
 
         <div class="flex gap-4 mt-4">
-          <a href="mailto:krystian@wlodek.net" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-lime-400 text-black font-semibold shadow-md hover:bg-lime-500 transition-colors duration-300">
+          <a href="mailto:krystian@wlodek.net"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-lime-400 text-black font-semibold shadow-md hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm2 0v.01L12 13 20 4.01V4H4zm16 16V8l-8 7-8-7v12h16z"/>
             </svg>
             Email
           </a>
-          <a href="https://github.com/krycha1248" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 text-white font-semibold shadow-md hover:bg-gray-700 transition-colors duration-300">
+          <a href="https://github.com/krycha1248" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 text-white font-semibold shadow-md hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.8 2-1.3.1-.9.4-1.5.7-1.8-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.4.1-2.9 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.5.2 2.6.1 2.9.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.3.7 1 .7 2v3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/>
             </svg>
@@ -64,11 +68,12 @@ const certificates = [
         </div>
       </div>
 
-      <div class="lg:w-7/12 p-6 rounded-xl shadow-lg hover:border-lime-400 border-2 border-transparent transition-colors duration-300">
+      <!-- TECHNOLOGIES -->
+      <div class="lg:w-7/12 p-6 rounded-xl shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
         <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">Technologies</h3>
         <div class="flex flex-wrap gap-4 justify-center">
           {technologies.map(tech => (
-            <span class="inline-block align-top px-4 py-2 rounded-full font-semibold text-sm md:text-base shadow-md hover:bg-lime-400 transition-colors duration-300 cursor-default">
+            <span class="inline-block align-top px-4 py-2 rounded-full font-semibold text-sm md:text-base shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300 cursor-default">
               {tech}
             </span>
           ))}
@@ -77,25 +82,26 @@ const certificates = [
 
     </div>
   </section>
+
+  <!-- CERTIFICATES -->
   <section class="pb-6">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="p-6 rounded-xl shadow-lg hover:border-lime-400 border-2 border-transparent transition-colors duration-300">
-      <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">Certificates</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {certificates.map(cert => (
-          <div class="relative rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-default">
-            {/* Ikona pliku w lewym górnym rogu */}
-            <div class="absolute -top-3 -left-3 w-10 h-10 bg-lime-400 rounded-tr-lg rounded-bl-lg flex items-center justify-center text-white font-bold shadow">
-              🗋
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="p-6 rounded-xl shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
+        <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">Certificates</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {certificates.map(cert => (
+            <div class="relative rounded-lg shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300 cursor-default">
+              <div class="absolute -top-3 -left-3 w-10 h-10 bg-lime-400 rounded-tr-lg rounded-bl-lg flex items-center justify-center text-white font-bold shadow">
+                🗋
+              </div>
+              <div class="p-6 pt-10">
+                <h4 class="font-semibold text-base md:text-lg">{cert}</h4>
+              </div>
             </div>
-            <div class="p-6 pt-10">
-              <h4 class="font-semibold text-base md:text-lg">{cert}</h4>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </BaseLayout>
