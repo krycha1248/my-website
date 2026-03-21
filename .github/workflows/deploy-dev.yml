@@ -28,6 +28,8 @@ jobs:
           run_install: true
       - name: Build Astro site
         run: pnpm run build
+        env:
+          DOMAIN_NAME: ${{ secrets.domain_name }}
       - name: Send the site via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
