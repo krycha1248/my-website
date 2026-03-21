@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - dev
+      - master
   workflow_dispatch:
 concurrency:
   group: Astro
   cancel-in-progress: false
 jobs:
   BuildAndDeploy:
+    environment: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -25,13 +27,13 @@ jobs:
           version: 10
           run_install: true
       - name: Build Astro site
-        run: PUBLIC_SITE_URL=https://wlodek.dev pnpm run build
+        run: pnpm run build
       - name: Send the site via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.ftp_address }}
-          username: ${{ secrets.ftp_username_dev }}
-          password: ${{ secrets.ftp_password_dev }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
           protocol: ftps
           local-dir: ./dist/
-          server-dir: /public_html/
+          server-dir: /domains/${{ secrets.domain_name }}/public_html/
