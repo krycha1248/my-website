@@ -2,21 +2,19 @@
 import '../styles/global.css';
 import Head from '../components/Head.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { getLangFromUrl } from '../i18n/utils';
 import { Toggle, ThemeScript } from 'astro-theme-toggle/components';
+import { getLangFromUrl } from '../i18n/utils';
 
 const { title = "Krystian Włodek", description = "" } = Astro.props;
 const lang = getLangFromUrl(Astro.url) || 'pl';
 ---
 
 <html lang={lang} class="scroll-smooth">
-  <head>
-    <Head title={title} description={description} lang={lang} />
-  </head>
+  <Head title={title} description={description} lang={lang} />
 
   <body class="min-h-screen bg-gray-200 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     
-    <!-- ThemeScript musi być w body, żeby Toggle działał -->
+    <!-- ThemeScript musi być w body -->
     <ThemeScript />
 
     <div class="w-full h-screen p-1 md:p-1">
@@ -40,19 +38,14 @@ const lang = getLangFromUrl(Astro.url) || 'pl';
           <!-- LANGUAGE SWITCHER + THEME TOGGLE -->
           <div class="flex items-center gap-4">
             <LanguageSwitcher />
+
             <Toggle
-              class="
-                relative w-10 h-10 rounded-full p-1 
-                bg-white dark:bg-gray-800 
-                shadow-md dark:shadow-lg 
-                flex items-center justify-center
-                transition-transform transition-shadow duration-300
-                hover:scale-110
-                hover:shadow-[0_0_20px_rgba(132,204,22,0.5)]
-                dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.7)]
-              "
+              class="relative w-10 h-10 rounded-full p-1 bg-white dark:bg-gray-800 shadow-md dark:shadow-lg flex items-center justify-center
+                     transition-transform transition-shadow duration-300 hover:scale-110
+                     hover:shadow-[0_0_20px_rgba(132,204,22,0.5)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.7)]"
             >
               <Fragment slot="icon-light">
+                <!-- Słońce -->
                 <svg class="w-6 h-6 text-lime-400 transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="5"/>
                   <line x1="12" y1="1" x2="12" y2="4"/>
@@ -66,6 +59,7 @@ const lang = getLangFromUrl(Astro.url) || 'pl';
                 </svg>
               </Fragment>
               <Fragment slot="icon-dark">
+                <!-- Księżyc -->
                 <svg class="w-6 h-6 text-lime-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
                 </svg>
