@@ -1,5 +1,4 @@
 ---
-import { ThemeScript } from 'astro-theme-toggle/components';
 import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
 
 const {
@@ -8,52 +7,43 @@ const {
   ogImage = "/assets/images/og.png"
 } = Astro.props;
 
-const currentUrl = Astro.url;
-const baseUrl = Astro.site;
+const url = Astro.url;
+const site = Astro.site;
 
-const currentLang = getLangFromUrl(currentUrl);
-const translatePath = useTranslatedPath(currentLang);
+const lang = getLangFromUrl(url);
+const translatePath = useTranslatedPath(lang);
 
-// generowanie URL-i językowych TAK SAMO jak w switcherze
-const plUrl = baseUrl + translatePath(currentUrl.pathname, 'pl');
-const enUrl = baseUrl + translatePath(currentUrl.pathname, 'en');
+const path = url.pathname;
+
+const plUrl = site + translatePath(path, 'pl');
+const enUrl = site + translatePath(path, 'en');
 ---
 
-<html lang={currentLang} class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/assets/images/favicon.png" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" href="/assets/images/favicon.png" />
 
-  <ThemeScript />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
 
-  <!-- BASIC SEO -->
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
+<link rel="canonical" href={url} />
 
-  <!-- CANONICAL -->
-  <link rel="canonical" href={currentUrl} />
+<link rel="alternate" hreflang="pl" href={plUrl} />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="x-default" href={plUrl} />
 
-  <!-- HREFLANG (SPÓJNE ZE SWITCHEREM) -->
-  <link rel="alternate" hreflang="pl" href={plUrl} />
-  <link rel="alternate" hreflang="en" href={enUrl} />
-  <link rel="alternate" hreflang="x-default" href={plUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_US'} />
+<meta property="og:locale:alternate" content={lang === 'pl' ? 'en_US' : 'pl_PL'} />
 
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={currentUrl} />
-  <meta property="og:locale" content={currentLang === 'pl' ? 'pl_PL' : 'en_US'} />
-  <meta property="og:locale:alternate" content={currentLang === 'pl' ? 'en_US' : 'pl_PL'} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
 
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImage} />
-
-  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-</head>
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
