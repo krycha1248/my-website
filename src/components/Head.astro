@@ -1,28 +1,59 @@
 ---
 import { ThemeScript } from 'astro-theme-toggle/components';
-const { title = "Krystian Włodek", description = "", lang = "pl", ogImage = "/assets/images/og.png" } = Astro.props;
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+
+const {
+  title = "Krystian Włodek",
+  description = "Krystian Włodek – Administrator IT",
+  ogImage = "/assets/images/og.png"
+} = Astro.props;
+
+const currentUrl = Astro.url;
+const baseUrl = Astro.site;
+
+const currentLang = getLangFromUrl(currentUrl);
+const translatePath = useTranslatedPath(currentLang);
+
+// generowanie URL-i językowych TAK SAMO jak w switcherze
+const plUrl = baseUrl + translatePath(currentUrl.pathname, 'pl');
+const enUrl = baseUrl + translatePath(currentUrl.pathname, 'en');
 ---
+
+<html lang={currentLang} class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="/assets/images/favicon.png" />
+
   <ThemeScript />
+
+  <!-- BASIC SEO -->
   <title>{title}</title>
-  {description && <meta name="description" content={description} />}
+  <meta name="description" content={description} />
   <meta name="robots" content="index, follow" />
 
-  <link rel="alternate" hreflang="pl" href={Astro.site} />
-  <link rel="alternate" hreflang="en" href={Astro.site + 'en/'} />
-  
+  <!-- CANONICAL -->
+  <link rel="canonical" href={currentUrl} />
+
+  <!-- HREFLANG (SPÓJNE ZE SWITCHEREM) -->
+  <link rel="alternate" hreflang="pl" href={plUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="x-default" href={plUrl} />
+
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={Astro.site} />
-  <meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_US'} />
+  <meta property="og:url" content={currentUrl} />
+  <meta property="og:locale" content={currentLang === 'pl' ? 'pl_PL' : 'en_US'} />
+  <meta property="og:locale:alternate" content={currentLang === 'pl' ? 'en_US' : 'pl_PL'} />
 
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
+
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 </head>
