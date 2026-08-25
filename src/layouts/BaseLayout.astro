@@ -6,13 +6,15 @@ import { Toggle, ThemeScript } from 'astro-theme-toggle/components';
 import { getLangFromUrl } from '../i18n/utils';
 
 const { title = "Krystian Włodek", description = "" } = Astro.props;
-const lang = getLangFromUrl(Astro.url) || 'pl';
+const lang = getLangFromUrl(Astro.url);
 ---
 
-<html lang={lang} class="scroll-smooth">
-  <Head title={title} description={description} lang={lang} />
+  <html lang={lang} class="scroll-smooth">
+    <head>
+      <Head title={title} description={description} lang={lang} />
+    </head>
 
-  <body class="min-h-screen bg-gray-200 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <body class="min-h-screen bg-gray-200 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     
     <!-- ThemeScript musi być w body -->
     <ThemeScript />

@@ -13,6 +13,10 @@ export function useTranslations(lang: Lang) {
 
 export function useTranslatedPath(lang: Lang) {
   return function translatePath(path: string, l: Lang = lang) {
-    return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
+    let basePath = path;
+    if (lang !== defaultLang && path.startsWith(`/${lang}`)) {
+      basePath = path.slice(`/${lang}`.length) || '/';
+    }
+    return !showDefaultLang && l === defaultLang ? basePath : `/${l}${basePath}`;
   }
 }

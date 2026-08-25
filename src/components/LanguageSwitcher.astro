@@ -1,18 +1,10 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
 
-const currentLang = getLangFromUrl(Astro.url) || 'pl';
+const currentLang = getLangFromUrl(Astro.url);
 const targetLang = currentLang === 'pl' ? 'en' : 'pl';
-
-// Usuń prefix aktualnego języka, jeśli istnieje
-let cleanPath = Astro.url.pathname;
-if (currentLang !== 'pl') {
-  cleanPath = cleanPath.replace(/^\/en/, '') || '/';
-}
-
-// Generuj poprawny link
-const linkHref = getRelativeLocaleUrl(targetLang, cleanPath);
+const translatePath = useTranslatedPath(currentLang);
+const linkHref = translatePath(Astro.url.pathname, targetLang);
 const label = targetLang.toUpperCase();
 ---
 

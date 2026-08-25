@@ -11,19 +11,25 @@ const url = Astro.url;
 const lang = getLangFromUrl(url);
 const translatePath = useTranslatedPath(lang);
 
-const plUrl = translatePath(url.pathname, 'pl');
-const enUrl = translatePath(url.pathname, 'en');
----
+const plPath = translatePath(url.pathname, 'pl');
+const enPath = translatePath(url.pathname, 'en');
 
+const site = Astro.site;
+const plUrl = new URL(plPath, site).href;
+const enUrl = new URL(enPath, site).href;
+const ogImageAbs = new URL(ogImage, site).href;
+const canonicalUrl = url.href;
+---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" href="/assets/images/favicon.png" />
+<meta name="theme-color" content="#263238" />
 
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="robots" content="index, follow" />
 
-<link rel="canonical" href={url.pathname} />
+<link rel="canonical" href={canonicalUrl} />
 
 <link rel="alternate" hreflang="pl" href={plUrl} />
 <link rel="alternate" hreflang="en" href={enUrl} />
@@ -31,15 +37,28 @@ const enUrl = translatePath(url.pathname, 'en');
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:image" content={ogImageAbs} />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={url.pathname} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_US'} />
 <meta property="og:locale:alternate" content={lang === 'pl' ? 'en_US' : 'pl_PL'} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image" content={ogImageAbs} />
 
 <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Krystian Włodek",
+  "url": site?.href || "https://wlodek.net",
+  "email": "krystian@wlodek.net",
+  "jobTitle": "DevOps Engineer",
+  "sameAs": [
+    "https://github.com/krycha1248"
+  ],
+  "description": description,
+})}></script>
