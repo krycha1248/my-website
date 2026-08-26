@@ -110,7 +110,7 @@ const repos = await reposResponse.json();
                 <h4 class="font-semibold text-base md:text-lg">{repo.name}</h4>
                 <p class="text-sm text-gray-500 mt-1">{repo.description ?? t.repositories.noDescription}</p>
                 <a href={repo.html_url} target="_blank" rel="noopener noreferrer"
-                   class="mt-2 inline-block text-sm text-black hover:underline">
+                   class="mt-2 inline-block text-sm hover:underline">
                   {t.repositories.viewOnGithub}
                 </a>
               </div>
