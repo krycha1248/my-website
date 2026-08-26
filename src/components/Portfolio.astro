@@ -101,14 +101,19 @@ const repos = await reposResponse.json();
       <div class="p-6 rounded-xl shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
         <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">{t.repositories.heading}</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {repos.map((repo: { name: string; description: string | null; html_url: string; }) => (
-            <div class="rounded-lg shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300 cursor-default p-6">
-              <h4 class="font-semibold text-base md:text-lg">{repo.name}</h4>
-              <p class="text-sm text-gray-500 mt-1">{repo.description ?? t.repositories.noDescription}</p>
-<a href={repo.html_url} target="_blank" rel="noopener noreferrer"
+{repos.map((repo: { name: string; description: string | null; html_url: string; }) => (
+            <div class="relative rounded-lg shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300 cursor-default">
+              <div class="absolute -top-3 -left-3 w-10 h-10 bg-lime-400 rounded-tr-lg rounded-bl-lg flex items-center justify-center text-white font-bold shadow">
+                📦
+              </div>
+              <div class="p-6 pt-10">
+                <h4 class="font-semibold text-base md:text-lg">{repo.name}</h4>
+                <p class="text-sm text-gray-500 mt-1">{repo.description ?? t.repositories.noDescription}</p>
+                <a href={repo.html_url} target="_blank" rel="noopener noreferrer"
                    class="mt-2 inline-block text-sm text-black hover:underline">
                   {t.repositories.viewOnGithub}
                 </a>
+              </div>
             </div>
           ))}
         </div>
