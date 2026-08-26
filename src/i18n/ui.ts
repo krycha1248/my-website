@@ -38,6 +38,11 @@ interface LocalizedContent {
     heading: string;
     items: string[];
   };
+  repositories: {
+    heading: string;
+    noDescription: string;
+    viewOnGithub: string;
+  };
 }
 
 export const content: Record<Lang, LocalizedContent> = {
@@ -76,6 +81,11 @@ export const content: Record<Lang, LocalizedContent> = {
         "Certyfikat Autodesk Certified User (ACU)"
       ],
     },
+    repositories: {
+      heading: "Repozytoria",
+      noDescription: "Brak opisu",
+      viewOnGithub: "Zobacz na GitHub →",
+    },
   },
   en: {
     title: "Krystian Włodek",
@@ -111,6 +121,11 @@ export const content: Record<Lang, LocalizedContent> = {
         "Qualification INF0.3",
         "Autodesk Certified User (ACU)"
       ],
+    },
+    repositories: {
+      heading: "Repositories",
+      noDescription: "No description",
+      viewOnGithub: "View on GitHub →",
     },
   },
 };

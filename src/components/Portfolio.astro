@@ -8,6 +8,12 @@ import { getContent } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getContent(lang);
+
+// Fetch GitHub repositories
+const githubUrl = t.about.githubUrl;
+const githubUsername = githubUrl.split('/').pop(); // extracts username from https://github.com/username
+const reposResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`);
+const repos = await reposResponse.json();
 ---
 <BaseLayout title={t.title} description={t.description}>
 
@@ -29,7 +35,7 @@ const t = getContent(lang);
   </section>
 
   <!-- ABOUT + TECHNOLOGIES -->
-  <section class="py-12">
+  <section class="py-6">
     <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-2 lg:gap-12 lg:items-stretch">
 
       <!-- ABOUT ME -->
@@ -69,7 +75,7 @@ const t = getContent(lang);
   </section>
 
   <!-- CERTIFICATES -->
-  <section class="pb-6">
+  <section class="py-6">
     <div class="max-w-7xl mx-auto px-6">
       <div class="p-6 rounded-xl shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
         <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">{t.certificates.heading}</h3>
@@ -82,6 +88,27 @@ const t = getContent(lang);
               <div class="p-6 pt-10">
                 <h4 class="font-semibold text-base md:text-lg">{cert}</h4>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GITHUB REPOSITORIES -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="p-6 rounded-xl shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300">
+        <h3 class="text-2xl md:text-3xl font-mono mb-6 border-b-2 border-lime-400 pb-2">{t.repositories.heading}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {repos.map((repo: { name: string; description: string | null; html_url: string; }) => (
+            <div class="rounded-lg shadow-md dark:shadow-[0_0_15px_rgba(132,204,22,0.3)] border-2 border-transparent hover:border-lime-400 hover:shadow-[0_0_15px_rgba(132,204,22,0.3)] dark:hover:shadow-[0_0_25px_rgba(132,204,22,0.6)] transition-colors transition-shadow duration-300 cursor-default p-6">
+              <h4 class="font-semibold text-base md:text-lg">{repo.name}</h4>
+              <p class="text-sm text-gray-500 mt-1">{repo.description ?? t.repositories.noDescription}</p>
+<a href={repo.html_url} target="_blank" rel="noopener noreferrer"
+                   class="mt-2 inline-block text-sm text-black hover:underline">
+                  {t.repositories.viewOnGithub}
+                </a>
             </div>
           ))}
         </div>
